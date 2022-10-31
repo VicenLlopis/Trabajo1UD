@@ -2,6 +2,9 @@ package com.example.trabajo1ud;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -14,6 +17,9 @@ import com.example.trabajo1ud.databinding.FragmentFirstBinding;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class FirstFragment extends Fragment {
 
@@ -51,6 +57,29 @@ public class FirstFragment extends Fragment {
                 items
         );
         binding.lvFragmenFrist.setAdapter(adapter);
+    }
+
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_main, menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if (id==R.id.refresh){
+            refresh();
+            return true;
+        }
+    }
+
+    private void refresh(){
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
+
+        executor.execute(()->{
+            MueblesApi api = new MueblesApi();
+            String result =api.g
+        });
     }
 
     @Override
