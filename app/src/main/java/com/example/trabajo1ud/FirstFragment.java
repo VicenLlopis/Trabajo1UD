@@ -1,6 +1,9 @@
 package com.example.trabajo1ud;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -8,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -24,7 +28,8 @@ import java.util.concurrent.Executors;
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
-
+    ArrayList<Muebles>  items;
+    ArrayAdapter<Muebles> adapter;
 
 
     @Override
@@ -40,17 +45,9 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        String[] data = {
-                "Los 400 golpes",
-                "El odio",
-                "El padrino",
-                "El padrino. Parte II",
-                "Ocurrió cerca de su casa",
-                "Infiltrados",
-                "Umberto D."
-        };
-        ArrayList<String>  items = new ArrayList<>(Arrays.asList(data));
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+
+        items = new ArrayList<>();
+        adapter = new ArrayAdapter<>(
                 getContext(),
                 R.layout.lv_muebles_row,
                 R.id.tvMuebles,
@@ -68,17 +65,28 @@ public class FirstFragment extends Fragment {
         int id = item.getItemId();
         if (id==R.id.refresh){
             refresh();
-            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     private void refresh(){
+        Toast.makeText(getContext(),"Refrecando...", Toast.LENGTH_LONG).show();
         ExecutorService executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
 
 
         executor.execute(()->{
             MueblesApi api = new MueblesApi();
-            String result =api.g
+          ArrayList<Muebles> listaMuebles = api.getMuebles();
+
+          handler.post(()->{
+              adapter.clear();
+              for (Muebles mueble: listaMuebles) {
+                  adapter.add(mueble);
+              }
+
+          });
+
         });
     }
 
