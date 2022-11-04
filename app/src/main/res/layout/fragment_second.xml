@@ -4,24 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo2"
     tools:context=".SecondFragment">
 
     <TextView
         android:id="@+id/textview_second"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_second"
+    <ImageView
+        android:id="@+id/imageViewSegFrag"
+        android:layout_width="184dp"
+        android:layout_height="203dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/previous"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="@+id/imageViewSegFrag"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSegFrag" />
+
+    <TextView
+        android:id="@+id/txtSeconFragName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toEndOf="@+id/imageViewSegFrag"
+        app:layout_constraintTop_toTopOf="@+id/imageViewSegFrag" />
+
+    <TextView
+        android:id="@+id/txtAltura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtAnchura"
+        app:layout_constraintStart_toStartOf="@+id/txtDescripcion"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescripcion"
+        app:layout_constraintVertical_bias="0.629" />
+
+    <TextView
+        android:id="@+id/txtAnchura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="232dp"
+        android:text="TextView"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtAltura" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

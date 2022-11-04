@@ -6,12 +6,43 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvMuebles"
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#CE736F6F"
+        app:layout_constraintBottom_toBottomOf="@+id/imageMuebles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageMuebles" />
+
+    <TextView
+        android:id="@+id/txtviewNameMuebles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/imageMuebles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/imageMuebles"
+        app:layout_constraintVertical_bias="0.437" />
+
+    <ImageView
+        android:id="@+id/imageMuebles"
+        android:layout_width="152dp"
+        android:layout_height="152dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="135dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

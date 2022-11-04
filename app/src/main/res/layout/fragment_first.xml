@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo4"
     tools:context=".FirstFragment">
 
 
     <ListView
-        android:id="@+id/lv_fragmen_frist"
+        android:id="@+id/list_view1"
         android:layout_width="409dp"
         android:layout_height="729dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" >
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="MissingConstraints">
 
 
     </ListView>
